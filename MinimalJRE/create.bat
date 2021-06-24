@@ -1,0 +1,1 @@
+jlink --compress=2 --module-path "C:\Program Files\Java\jdk-13.0.2\jmods" --add-modules java.base
