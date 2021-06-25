@@ -5,3 +5,9 @@ test/
 MinimalJRE/jre/
 
 input.h
+
+aviutl100/
+
+MCHead/.gradle/
+MCHead/.idea/
+MCHead/build/

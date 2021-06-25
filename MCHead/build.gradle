@@ -39,3 +39,7 @@ shadowJar {
     exclude('module-info.class')
     exclude('META-INF/versions/')
 }
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}

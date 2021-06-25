@@ -8,6 +8,7 @@ import com.github.eighty88.mcskin.imager.renderer.point.Point3d;
 import org.json.JSONObject;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.File;
@@ -17,12 +18,22 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Main {
-    public static void main(String[] args) {
-        if(args.length == 2) {
-            a(args[0], args[1]);
-        } else if(args.length == 1) {
-            a(args[0], "");
+    public static void main(String[] args) throws Exception {
+        String a = JOptionPane.showInputDialog ("MCIDを入力してください");
+        if(a == null) {
+            System.exit(2);
         }
+        if(!new File("Temp").exists()) {
+            if(!new File("Temp").mkdir()) {
+                System.exit(3);
+            }
+        }
+        if(new File("Temp", "temp.png").exists()) {
+            if(new File("Temp", "temp.png").delete()) {
+                System.exit(4);
+            }
+        }
+        a(a, "Temp");
     }
 
     public static void a(String str, String path) {
@@ -48,7 +59,7 @@ public class Main {
                     1000
             );
             image = image.getSubimage(367, 76, 264, 264);
-            ImageIO.write(image, "png", new File(path, str + ".png"));
+            ImageIO.write(image, "png", new File(path, "temp.png"));
         } catch (Exception e) {
             System.out.println("Player Not Found!");
         }
